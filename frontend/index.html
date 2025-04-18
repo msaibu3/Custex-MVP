@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Custex Moderation Dashboard</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 2rem;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    #drop-area {
+      padding: 2rem;
+      border: 2px dashed #ccc;
+      border-radius: 8px;
+      text-align: center;
+      background-color: #f9f9f9;
+    }
+    #logs {
+      max-height: 300px;
+      overflow-y: auto;
+      background: #f3f3f3;
+      padding: 1rem;
+      border-radius: 6px;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Custex Moderation MVP</h1>
+
+<section>
+  <h2>📝 Analyze Text</h2>
+  <textarea id="textInput" rows="4" cols="60" placeholder="Enter text to analyze..."></textarea><br>
+  <button onclick="analyzeText()">Analyze Text</button>
+  <pre id="textResult"></pre>
+</section>
+
+<section>
+  <h2>🖼️ Analyze Image</h2>
+  <div id="drop-area">
+    <input type="file" id="fileElem" accept="image/*" onchange="handleImageUpload(this.files)">
+    <label for="fileElem">Drag an image here or click to upload</label>
+  </div>
+  <pre id="imageResult"></pre>
+</section>
+
+<section>
+  <h2>🌐 Block or Unblock a Domain</h2>
+  <input type="text" id="domainInput" placeholder="Enter domain (e.g., phishing.com)" size="40">
+  <br><br>
+  <button onclick="blockDomain()">Block Domain</button>
+  <button onclick="unblockDomain()">Unblock Domain</button>
+  <pre id="domainResult"></pre>
+</section>
+
+<section>
+  <h2>📜 View Logs</h2>
+  <button onclick="loadLogs()">Refresh Logs</button>
+  <div id="logs">Loading logs...</div>
+</section>
+
+<script>
+  const API_BASE = 'http://127.0.0.1:8000';
+
+  async function analyzeText() {
+    const text = document.getElementById('textInput').value;
+    const res = await fetch(`${API_BASE}/analyze-text`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text })
+    });
+
+    const data = await res.json();
+
+    try {
+      const toxicityScore = data.attributeScores.TOXICITY.summaryScore.value;
+      let verdict = '';
+
+      if (toxicityScore >= 0.8) {
+        verdict = `🚫 HIGHLY TOXIC: ${toxicityScore.toFixed(2)} (Blocked)`;
+      } else if (toxicityScore >= 0.5) {
+        verdict = `⚠️ Moderately Toxic: ${toxicityScore.toFixed(2)} (Warn)`;
+      } else {
+        verdict = `✅ Safe: ${toxicityScore.toFixed(2)}`;
+      }
+
+      document.getElementById('textResult').textContent = `${verdict}\n\nRaw JSON:\n${JSON.stringify(data, null, 2)}`;
+      loadLogs();
+    } catch (e) {
+      document.getElementById('textResult').textContent = "❌ Could not parse toxicity score.\n\n" + JSON.stringify(data, null, 2);
+    }
+  }
+
+  function handleImageUpload(files) {
+    if (!files.length) return;
+
+    const formData = new FormData();
+    formData.append('file', files[0]);
+
+    fetch(`${API_BASE}/analyze-image`, {
+      method: 'POST',
+      body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+      const scoreLabels = ["VERY_UNLIKELY", "UNLIKELY", "POSSIBLE", "LIKELY", "VERY_LIKELY"];
+      let resultText = `📄 File: ${data.file}\n\n`;
+
+      for (const [category, score] of Object.entries(data.result)) {
+        const label = scoreLabels[score] || "UNKNOWN";
+        const flag = (score >= 2) ? "⚠️" : "✅"; // Flag POSSIBLE or higher
+        resultText += `${flag} ${category.toUpperCase()}: ${label}\n`;
+      }
+
+      resultText += `\n🧾 Raw JSON:\n${JSON.stringify(data, null, 2)}`;
+      document.getElementById('imageResult').textContent = resultText;
+      loadLogs();
+    })
+    .catch(err => alert('Upload failed: ' + err));
+  }
+
+  async function blockDomain() {
+    const domain = document.getElementById('domainInput').value.trim();
+    if (!domain) return alert("Please enter a domain.");
+
+    const res = await fetch(`${API_BASE}/blocklist`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ domain })
+    });
+
+    const data = await res.json();
+    document.getElementById('domainResult').textContent = JSON.stringify(data, null, 2);
+    loadLogs();
+  }
+
+  async function unblockDomain() {
+    const domain = document.getElementById('domainInput').value.trim();
+    if (!domain) return alert("Please enter a domain.");
+
+    const res = await fetch(`${API_BASE}/unblock/${domain}`, {
+      method: 'DELETE'
+    });
+
+    const data = await res.json();
+    document.getElementById('domainResult').textContent = JSON.stringify(data, null, 2);
+    loadLogs();
+  }
+
+  async function loadLogs() {
+    const res = await fetch(`${API_BASE}/logs`);
+    const data = await res.json();
+    document.getElementById('logs').textContent = JSON.stringify(data.logs.slice(-10), null, 2);
+  }
+
+  // Auto-load logs on first visit
+  loadLogs();
+</script>
+
+
+</body>
+</html>

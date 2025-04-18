@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "guardian-ai-project",
+  "private_key_id": "8d3d08bb7988dde34ad86714a456d6ebc80f7f31",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC+ik4iLuDm2U07\nZG7Xr6q+5tscZ1osQ2iGuVat5E5QCwpL/VvdsGaL7LtS8mA10V1TcyyV4op4lHpq\nRC/DgoKHxLDtiowzuQR1Fu4ueNoDDQZ7xzMzZOwYQYLfKNngZezHsjXn0eYYAHK8\n9Y0PB+132LUqVNiadkTFEbkKKCOp6GoeVB9YkI1/WQKiFoLF5kmY2qReYbzFgLiq\nexuZtGqcjIBL2VasLo8KFu7INhRbnfT9bmYzRF2Iv06U0xko6QyezRsuGpZ/CCin\nEvNmBRpX8QVEv+qWFYkrHCE1LeR1Gt/Y7Rv8RokO0zkTcn5lgXbHhBm2DVMQlzup\n43d5PEyLAgMBAAECggEAWa5DBDfIRx80CKZGvWHDHcMOkhnbCUZY5kBJmeMBMQ9h\nM072dCtYuLcdm/bUbcAzCtoEvC86OXK5A1dAm+bLhReApu00/AszG+FFDb537kOt\nL4kcgi4YKXp8HIjfs4yFm6A3WvsiL13WozV3xQFYNbZb3qa8pEbSK2ciDrPBxW/7\nUGvekX406X/QD8rBuoaoPJ1g6k/7QHWlSygH29rH73dsmn5UlJncP7ezQQbsDLXZ\n80m6sbAFHFLVsIhK9F87VeWxS29JvsKLOgbz9tmVIP6dtZ5uX2EnLDV8Xc+2pjqc\n9ax1wX2gqIZ8H1Wl9K5vrZWzbJrQ039aaIKu1N/NwQKBgQD40pelUAkdNBBBA4nW\niD0uX1v52GIConzx4jFJLoGcbphdwNrN4IpklThQCbGkys7IggSHo6M7kEoKqFaA\nzdjckpjdN7avEfNSD4/6KuKD9xvJx6PI/rwrHxDlXMe4R8THHW3Cbo6ngETe7PQk\ncoPgu78FmVk66XzhowXmtk4wmwKBgQDECVUCbd+j4oqGCJ/QoYO0EgbLhiQQpRtl\n+QcFU9sEZ7BYgXE8/6QXp2Eo8CEI1w4o7+e0EtGYDM7yh5FDv0ixE2H6VJlXd1ZA\n3iuZQnV23o2BCOsqW1lhH4Iw6aT2EPE3ljjLQRq1NERRLAoViy4EjyceN9cWwYBi\nS0abVqK60QKBgQDdwZI1WudEh6oUxzqJYFJmicZHHXn8LyR7zsNuHWyWJlrU85QN\n+BhfHD5b1sfjvnwcZwPyfvxzkVzrsqulj8++hUiHn6fIz46zi/sdUisewZSaeLqX\n36+EHuPIBrBYpF3Tt36i0jWBQugeZcAQ2559I9ZS/yBvSLhrwAb6X2/AEQKBgQCc\nZYmRp5C9UdYL+sNtkf3d4mfTZZBOSzrhjtxgDrdz+zlAUvzBmn4SdPHZ1EG2qMPe\nOw+SpVTbxpQv/6IP94KJ6xnGukmf81A37kfAPLoz/HfOEwxyvXBAQP///9cgjQG0\nxD9JQQaKvEkorUbaSzCKaJ7fx9Lsj7HaOY36DhNDkQKBgBFn8LRCysLTZxmJwVZ5\n9EVMm1k0GNT8eS9bOxrdWNgxrHreJI8EvpKcbjnZT9K75ivbh172GiRDX2EuoR24\n8nDr0jDovBxcsRhdxwnJgi51n3X/KMrDvnNgzGfdEyMj3EPhoR/0fdP2946IGYWu\nnmO6PETCFjjxPnUBPvw44CVL\n-----END PRIVATE KEY-----\n",
+  "client_email": "custex@guardian-ai-project.iam.gserviceaccount.com",
+  "client_id": "110294898550630311003",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/custex%40guardian-ai-project.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
