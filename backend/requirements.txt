@@ -1,0 +1,29 @@
+fastapi
+uvicorn
+pydantic
+requests
+google-cloud-vision
+
+certifi==2024.12.14
+
+# Web framework for building the API
+fastapi==0.95.1  
+uvicorn==0.21.1  
+
+# AI-based content filtering
+google-cloud-vision==3.1.0  
+opencv-python==4.7.0.72  
+transformers==4.30.0  
+torch==2.6.0  
+
+# Networking and Proxy Server (Squid, DNS)
+requests==2.31.0  
+dnspython==2.3.0  
+
+# Cloud and Notifications (Twilio)
+twilio==8.0.0  
+sendgrid==6.10.0  
+
+# Miscellaneous utilities
+pydantic==1.10.7  
+python-dotenv==1.0.0  

@@ -1,0 +1,14 @@
+{"timestamp": "2025-04-15T00:11:25.524988Z", "event": "Analyzed image: Screenshot 2025-04-14 at 4.55.26\u202fPM.png", "result": {"adult": 1, "violence": 2, "racy": 2, "medical": 2, "spoof": 1}}
+{"timestamp": "2025-04-15T00:23:49.273673Z", "event": "Analyzed image: Screenshot 2025-04-14 at 4.55.26\u202fPM.png", "result": {"adult": 1, "violence": 2, "racy": 2, "medical": 2, "spoof": 1}}
+{"timestamp": "2025-04-15T01:35:29.086354Z", "event": "Analyzed image: Screenshot 2025-04-14 at 6.35.09\u202fPM.png", "result": {"adult": 1, "violence": 2, "racy": 2, "medical": 2, "spoof": 3}}
+{"timestamp": "2025-04-15T22:08:24.997224Z", "event": "Analyzed image: Screenshot 2025-04-15 at 3.07.35\u202fPM.png", "result": {"adult": 1, "violence": 1, "racy": 1, "medical": 1, "spoof": 1}}
+{"timestamp": "2025-04-15T22:14:28.914716Z", "event": "Analyzed image: Screenshot 2025-04-15 at 3.13.32\u202fPM.png", "result": {"adult": 2, "violence": 2, "racy": 5, "medical": 1, "spoof": 2}}
+{"timestamp": "2025-04-15T22:28:58.809433Z", "event": "Analyzed image: Screenshot 2025-04-15 at 3.27.00\u202fPM.png", "result": {"adult": 1, "violence": 2, "racy": 2, "medical": 2, "spoof": 2}}
+{"timestamp": "2025-04-16T03:59:03.826232Z", "event": "Analyzed image: Screenshot 2025-04-15 at 8.58.51\u202fPM.png", "result": {"adult": 1, "violence": 2, "racy": 3, "medical": 3, "spoof": 5}}
+{"timestamp": "2025-04-16T04:01:38.966632Z", "event": "Blocked domain: phishing.com"}
+{"timestamp": "2025-04-16T04:02:31.290768Z", "event": "Unblocked domain: phishing.com"}
+{"timestamp": "2025-04-16T20:30:14.423072Z", "event": "Analyzed text", "input_text": "You're a worthless piece of trash", "result": {"attributeScores": {"TOXICITY": {"spanScores": [{"begin": 0, "end": 33, "score": {"value": 0.89241093, "type": "PROBABILITY"}}], "summaryScore": {"value": 0.89241093, "type": "PROBABILITY"}}}, "languages": ["en"], "detectedLanguages": ["en"]}}
+{"timestamp": "2025-04-16T21:48:37.662934Z", "event": "Analyzed text", "input_text": "You're a worthless piece of trash", "toxicity_score": 0.892}
+{"timestamp": "2025-04-17T03:33:14.772832Z", "event": "Blocked domain: phishing.com"}
+{"timestamp": "2025-04-17T03:59:12.562151Z", "event": "Unblocked domain: phishing.com"}
+{"timestamp": "2025-04-17T04:00:14.659588Z", "event": "Blocked domain: phishing.com"}
