@@ -26,6 +26,7 @@ google-auth-oauthlib==1.2.1
 google-cloud-vision==3.1.0
 googleapis-common-protos==1.70.0
 grpcio==1.71.0
+grpcio-status==1.48.2
 h11==0.14.0
 httpcore==1.0.7
 httplib2==0.22.0
@@ -47,7 +48,7 @@ opencv-python==4.7.0.72
 orjson==3.10.15
 packaging==24.2
 propcache==0.3.0
-protobuf==3.20.3
+protobuf==3.20.2
 proto-plus==1.26.1
 pyasn1==0.6.1
 pyasn1_modules==0.4.1
