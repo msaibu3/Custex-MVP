@@ -195,6 +195,10 @@ async def analyze_image(file: UploadFile = File(...)):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.get("/")
+def read_root():
+    return {"message": "Custex MVP backend is live!"}
+
 # ✅ 7. Retrieve Recent Activity Logs
 @app.get("/logs")
 def get_logs():
